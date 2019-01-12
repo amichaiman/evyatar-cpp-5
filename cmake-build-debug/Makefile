@@ -150,6 +150,33 @@ Element.cpp.s:
 	$(MAKE) -f CMakeFiles/evyatar_cpp_5.dir/build.make CMakeFiles/evyatar_cpp_5.dir/Element.cpp.s
 .PHONY : Element.cpp.s
 
+Pareto.o: Pareto.cpp.o
+
+.PHONY : Pareto.o
+
+# target to build an object file
+Pareto.cpp.o:
+	$(MAKE) -f CMakeFiles/evyatar_cpp_5.dir/build.make CMakeFiles/evyatar_cpp_5.dir/Pareto.cpp.o
+.PHONY : Pareto.cpp.o
+
+Pareto.i: Pareto.cpp.i
+
+.PHONY : Pareto.i
+
+# target to preprocess a source file
+Pareto.cpp.i:
+	$(MAKE) -f CMakeFiles/evyatar_cpp_5.dir/build.make CMakeFiles/evyatar_cpp_5.dir/Pareto.cpp.i
+.PHONY : Pareto.cpp.i
+
+Pareto.s: Pareto.cpp.s
+
+.PHONY : Pareto.s
+
+# target to generate assembly for a file
+Pareto.cpp.s:
+	$(MAKE) -f CMakeFiles/evyatar_cpp_5.dir/build.make CMakeFiles/evyatar_cpp_5.dir/Pareto.cpp.s
+.PHONY : Pareto.cpp.s
+
 Simulation.o: Simulation.cpp.o
 
 .PHONY : Simulation.o
@@ -243,6 +270,9 @@ help:
 	@echo "... Element.o"
 	@echo "... Element.i"
 	@echo "... Element.s"
+	@echo "... Pareto.o"
+	@echo "... Pareto.i"
+	@echo "... Pareto.s"
 	@echo "... Simulation.o"
 	@echo "... Simulation.i"
 	@echo "... Simulation.s"

@@ -90,6 +90,12 @@
 		<Unit filename="/home/amichai/CLionProjects/evyatar-cpp-5/Element.h">
 			<Option target="evyatar_cpp_5"/>
 		</Unit>
+		<Unit filename="/home/amichai/CLionProjects/evyatar-cpp-5/Pareto.cpp">
+			<Option target="evyatar_cpp_5"/>
+		</Unit>
+		<Unit filename="/home/amichai/CLionProjects/evyatar-cpp-5/Pareto.h">
+			<Option target="evyatar_cpp_5"/>
+		</Unit>
 		<Unit filename="/home/amichai/CLionProjects/evyatar-cpp-5/Simulation.cpp">
 			<Option target="evyatar_cpp_5"/>
 		</Unit>

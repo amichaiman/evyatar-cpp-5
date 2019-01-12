@@ -3,4 +3,4 @@ project(evyatar_cpp_5)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(evyatar_cpp_5 main.cpp TargetGroup.cpp TargetGroup.h Simulation.cpp Simulation.h Element.cpp Element.h)
+add_executable(evyatar_cpp_5 main.cpp TargetGroup.cpp TargetGroup.h Simulation.cpp Simulation.h Element.cpp Element.h Pareto.cpp Pareto.h)

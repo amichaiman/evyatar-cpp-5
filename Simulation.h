@@ -27,14 +27,22 @@ public:
             return message;
         }
     };
-    struct InvalidTypeException : public exception {
+    struct InvlidDefinitionException : public exception {
+        const char* filename;
+        explicit InvlidDefinitionException(const char* filename) : filename(filename){ }
         virtual const char *what() const throw(){
-            return "ERROR: Invalid type encountered while parsing file";
+            stringstream ss;
+            ss << "ERROR: simulation definition in " << filename << " is invalid";
+            char *message = new char[ss.str().length()+1];
+            strcpy(message,ss.str().c_str());
+            return message;
         }
     };
+
+    void simulate(const char *outputfile);
+
 private:
     int iterations;
-    bool goodFileState(const ifstream &file);
     TargetGroup targetGroup;
 };
 

@@ -1,29 +1,50 @@
 #include <iostream>
 #include "TargetGroup.h"
+#include "Pareto.h"
 
 inline double square(double n) {
     return n*n;
 }
-void TargetGroup::init(ifstream &file, int groupSize, int initialGroupDimension, int targetGroupDimension) {
-    double currentInitialVector[initialGroupDimension];
-    double currentTargetVector[targetGroupDimension];
 
-    for (int i=0; i<groupSize; i++) {                       //iterate over rows
-        for (int j=0; j <targetGroupDimension; j++) {
-            currentTargetVector[j] = 0;
-            for (int k=0; k<initialGroupDimension; k++) {  //iterate over columns
-                if (j==0) {         //fill array from file in first iteration
-                    file >> currentInitialVector[k];
-                    /* if invalid file format */
-                    if ((initialGroupDimension-1 == k && file.peek() != '\n') || (initialGroupDimension-1 != k && file.peek() != ' ')) {
-                        throw InvalidDefinitionException(initialGroupDimension);
-                    }
-                }
-                cout << currentInitialVector[k] << (k == initialGroupDimension-1 ? '\n' : ' ');
-                currentTargetVector[j] += square(currentInitialVector[k]-(j+1));
-            }
+ifstream& operator>>(ifstream &file, Element element){
+    for (int i=0; i<element.initialGroupDimension; i++) {
+        file >> element.initialGroup[i];
+        if (file.bad() || file.fail() || file.peek() != (i == element.initialGroupDimension-1 ? '\n' : ' ')) {
+            throw exception();
         }
-        cout << "pushed!" << endl;
-        elements.push_back(Element(currentTargetVector, targetGroupDimension));
     }
+    return file;
+}
+
+void TargetGroup::init(const char *filename, ifstream &file, int groupSize, int initialGroupDimension, int targetGroupDimension) {
+    TargetGroup::groupSize = groupSize;
+    for (int i=0; i<groupSize; i++) {
+        Element *element = new Element(initialGroupDimension, targetGroupDimension);
+        try {
+            file >> *element;
+        } catch (exception &e) {
+            throw InvalidPopulationDefinition(filename, i+2);
+        }
+        element->createTargetGroup();
+        elements.push_back(element);
+    }
+}
+
+void TargetGroup::update() {
+    for (int i=0; i<groupSize; i++) {
+        Element* movedByRandom = elements[i]->clone();
+        movedByRandom->moveByRandom();
+        elements.push_back(movedByRandom);
+    }
+    Pareto<vector<Element*> >::ParetoSorting(elements);
+    for (int i=groupSize; i<2*groupSize; i++) {
+        elements.erase(elements.begin()+groupSize);
+    }
+}
+
+ostream &operator<<(ostream &out, TargetGroup targetGroup) {
+    for (int i=0; i<targetGroup.groupSize; i++) {
+        out << *(targetGroup.elements[i]) << endl;
+    }
+    return out;
 }

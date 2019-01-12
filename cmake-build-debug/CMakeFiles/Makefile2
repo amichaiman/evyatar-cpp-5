@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/amichai/CLionProjects/evyatar-cpp-5/cmake-build-debug
 CMakeFiles/evyatar_cpp_5.dir/all:
 	$(MAKE) -f CMakeFiles/evyatar_cpp_5.dir/build.make CMakeFiles/evyatar_cpp_5.dir/depend
 	$(MAKE) -f CMakeFiles/evyatar_cpp_5.dir/build.make CMakeFiles/evyatar_cpp_5.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amichai/CLionProjects/evyatar-cpp-5/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target evyatar_cpp_5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/amichai/CLionProjects/evyatar-cpp-5/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target evyatar_cpp_5"
 .PHONY : CMakeFiles/evyatar_cpp_5.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/evyatar_cpp_5.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/evyatar_cpp_5.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/amichai/CLionProjects/evyatar-cpp-5/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amichai/CLionProjects/evyatar-cpp-5/cmake-build-debug/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/evyatar_cpp_5.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/amichai/CLionProjects/evyatar-cpp-5/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/evyatar_cpp_5.dir/rule

@@ -15,22 +15,29 @@ using namespace std;
 
 class TargetGroup {
 public:
-    void init(ifstream &file, int groupSize, int initialGroupDimension, int targetGroupDimension);
-    struct InvalidDefinitionException : public exception {
-        int value;
+    static const int MAX_GROUP_SIZE = 1000;
+    void init(const char *filename,ifstream &file, int groupSize, int initialGroupDimension, int targetGroupDimension);
 
-        explicit InvalidDefinitionException(int numberOfColumns) : value(numberOfColumns){ }
+    struct InvalidPopulationDefinition : public exception {
+        const char* filename;
+        const int line;
 
+        explicit InvalidPopulationDefinition(const char* filename, int line) : filename(filename), line(line){ }
         virtual const char *what() const throw(){
             stringstream ss;
-            ss << "ERROR: simulation definition in " << value << " is invalid";
+            ss << "ERROR: population definition in " << filename << " at line " << line << " is invalid";
             char *message = new char[ss.str().length()+1];
             strcpy(message,ss.str().c_str());
             return message;
         }
     };
+
+    void update();
+    friend ostream& operator<<(ostream& out, TargetGroup targetGroup);
+
 private:
-    vector<Element> elements;
+    vector<Element*> elements;
+    int groupSize;
 };
 
 

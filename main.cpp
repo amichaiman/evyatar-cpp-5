@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include "TargetGroup.h"
 #include "Simulation.h"
 
@@ -11,11 +12,13 @@ int main(int argc, char** argv) {
         exit(1);
     }
     Simulation simulation;
+    srand(time(0));
     try {
         simulation.init(argv[1]);
     } catch (const exception &e) {
         cout << e.what() << endl;
         exit(2);
     }
+    simulation.simulate(argv[2]);
     return 0;
 }

@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/evyatar_cpp_5.dir/TargetGroup.cpp.o"
   "CMakeFiles/evyatar_cpp_5.dir/Simulation.cpp.o"
   "CMakeFiles/evyatar_cpp_5.dir/Element.cpp.o"
+  "CMakeFiles/evyatar_cpp_5.dir/Pareto.cpp.o"
   "evyatar_cpp_5.pdb"
   "evyatar_cpp_5"
 )
